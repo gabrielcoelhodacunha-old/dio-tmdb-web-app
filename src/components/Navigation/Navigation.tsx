@@ -1,8 +1,8 @@
 import { TObject } from 'common/types';
 import { useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { getLists, selectLists } from 'redux/tmdb';
+import { useAppDispatch } from 'redux/hooks';
+import { reset, getLists } from 'redux/tmdb';
 import { deleteSession, isLoggedIn } from 'services/tmdb';
 
 function Navigation(): JSX.Element {
@@ -11,11 +11,10 @@ function Navigation(): JSX.Element {
 	const searchButton = useRef<HTMLButtonElement>(null);
 	const listsButton = useRef<HTMLButtonElement>(null);
 	const dispatch = useAppDispatch();
-	const lists = useAppSelector(selectLists);
 
 	useEffect(() => {
+		if (!isLoggedIn()) return;
 		const toggleButtons = () => {
-			if (!isLoggedIn()) return;
 			const route = location.pathname.slice(1);
 			const routes = { search: searchButton, lists: listsButton } as TObject;
 			Object.keys(routes).forEach((key) => {
@@ -26,12 +25,13 @@ function Navigation(): JSX.Element {
 	}, [location.pathname]);
 
 	useEffect(() => {
-		if (lists.length) return;
+		if (!isLoggedIn()) return;
 		dispatch(getLists());
-	}, [dispatch, lists.length]);
+	}, [dispatch]);
 
 	const logOut = async () => {
 		await deleteSession();
+		dispatch(reset());
 		navigateTo('/');
 	};
 
@@ -40,10 +40,10 @@ function Navigation(): JSX.Element {
 			{isLoggedIn() && (
 				<nav>
 					<button ref={searchButton} onClick={() => navigateTo('search')}>
-						Pesquisar
+						Search
 					</button>
 					<button ref={listsButton} onClick={() => navigateTo('lists')}>
-						Listas
+						Lists
 					</button>
 					<button onClick={logOut}>Log Out</button>
 				</nav>

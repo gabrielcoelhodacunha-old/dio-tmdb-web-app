@@ -4,7 +4,7 @@ import ListItem from './ListItem';
 
 function ListTable({ lists }: Props): JSX.Element {
 	const tableProps = {
-		columns: ['Nome', 'Descricao', 'Filmes'],
+		columns: ['Name', 'Description', 'Movies'],
 		data: lists.map((list) => ListItem(list)),
 	};
 	return <Table {...tableProps} />;

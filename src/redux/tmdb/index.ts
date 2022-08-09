@@ -19,14 +19,18 @@ export const {
 	removeMovieFromList,
 } = listsActions;
 
+const initialState: TMDBState = {
+	movies: [],
+	lists: [],
+	status: 'idle',
+};
+
 export const tmdbSlice = createSlice({
 	name: 'tmdb',
-	initialState: {
-		movies: [],
-		lists: [],
-		status: 'idle',
-	} as TMDBState,
-	reducers: {},
+	initialState,
+	reducers: {
+		reset: () => initialState,
+	},
 	extraReducers: (builder) => {
 		[
 			searchMovie,
@@ -60,6 +64,8 @@ export const tmdbSlice = createSlice({
 			});
 	},
 });
+
+export const { reset } = tmdbSlice.actions;
 
 export const selectMovies = (state: RootState) => state.tmdb.movies;
 export const selectLists = (state: RootState) => state.tmdb.lists;

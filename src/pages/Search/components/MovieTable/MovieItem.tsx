@@ -6,8 +6,8 @@ function MovieItem({ id, title, poster_path }: TMovie) {
 	const movieTitleProps = { title, poster_path };
 	const listsProps = { movieId: id };
 	return {
-		Filme: <MovieTitle {...movieTitleProps} />,
-		Listas: <MovieLists {...listsProps} />,
+		Movie: <MovieTitle {...movieTitleProps} />,
+		Lists: <MovieLists {...listsProps} />,
 	};
 }
 

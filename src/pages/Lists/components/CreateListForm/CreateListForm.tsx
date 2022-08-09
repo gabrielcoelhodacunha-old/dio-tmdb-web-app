@@ -5,12 +5,12 @@ import { keepInputValue } from 'utils/localStorage';
 function CreateListForm({ name, description, create }: Props): JSX.Element {
 	const nameProps = {
 		...name,
-		label: 'Nome',
+		label: 'Name',
 		onBlur: () => keepInputValue(name._ref, 'listName'),
 	};
 	const descriptionProps = {
 		...description,
-		label: 'Nome',
+		label: 'Description',
 		onBlur: () => keepInputValue(description._ref, 'listDescription'),
 	};
 	return (
@@ -22,7 +22,7 @@ function CreateListForm({ name, description, create }: Props): JSX.Element {
 		>
 			<LabelledInput {...nameProps} />
 			<LabelledTextArea {...descriptionProps} />
-			<button>Criar Lista</button>
+			<button>Create List</button>
 		</form>
 	);
 }

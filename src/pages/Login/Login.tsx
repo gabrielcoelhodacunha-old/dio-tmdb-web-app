@@ -3,12 +3,15 @@ import { LabelledInput } from 'components';
 import { authenticate } from 'services/tmdb';
 import { useNavigate } from 'react-router-dom';
 import { TUser } from 'common/types';
+import { useAppDispatch } from 'redux/hooks';
+import { getLists } from 'redux/tmdb';
 
 function LoginContainer() {
 	const username = useRef<HTMLInputElement>(null);
 	const password = useRef<HTMLInputElement>(null);
 	const apiKey = useRef<HTMLInputElement>(null);
 	const navigateTo = useNavigate();
+	const dispatch = useAppDispatch();
 
 	const props = { type: 'password' };
 	const usernameProps = {
@@ -42,6 +45,7 @@ function LoginContainer() {
 			user[key] = input.value;
 		}
 		await authenticate(user);
+		dispatch(getLists());
 		navigateTo('/');
 	};
 

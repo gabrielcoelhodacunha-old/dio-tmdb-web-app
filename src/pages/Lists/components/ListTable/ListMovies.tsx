@@ -18,7 +18,7 @@ function ListMovies({ listId, items }: Props): JSX.Element {
 
 	const selectProps = { disabled: !hasItems, items };
 	const removeProps = {
-		text: 'Remover filme',
+		text: 'Remove movie',
 		onClick: _removeMovieFromList,
 		disabled: !hasItems,
 	};

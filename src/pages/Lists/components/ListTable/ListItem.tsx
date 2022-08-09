@@ -8,9 +8,9 @@ function ListItem({ id, name, description, items }: TList) {
 	const descriptionProps = { description };
 	const moviesProps = { listId: id, items };
 	return {
-		Nome: <ListName {...nameProps} />,
-		Descricao: <ListDescription {...descriptionProps} />,
-		Filmes: <ListMovies {...moviesProps} />,
+		Name: <ListName {...nameProps} />,
+		Description: <ListDescription {...descriptionProps} />,
+		Movies: <ListMovies {...moviesProps} />,
 	};
 }
 

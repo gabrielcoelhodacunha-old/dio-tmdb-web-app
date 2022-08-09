@@ -11,7 +11,7 @@ function ListName({ id, name }: Props): JSX.Element {
 
 	return (
 		<div>
-			<button onClick={_deleteList}>Deletar lista</button>
+			<button onClick={_deleteList}>Delete list</button>
 			<p>{name}</p>
 		</div>
 	);

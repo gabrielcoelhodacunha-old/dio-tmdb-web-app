@@ -51,13 +51,13 @@ function MovieLists({ movieId }: Props): JSX.Element {
 	};
 
 	const addProps = {
-		text: 'Adicionar',
+		text: 'Add',
 		onClick: () => _addMovieToList(),
 		disabled: !hasLists || isMovieInList,
 	};
 
 	const removeProps = {
-		text: 'Remover',
+		text: 'Remove',
 		onClick: () => _removeMovieFromList(),
 		disabled: !hasLists || !isMovieInList,
 	};

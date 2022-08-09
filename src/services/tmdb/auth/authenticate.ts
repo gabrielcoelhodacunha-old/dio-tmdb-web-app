@@ -10,7 +10,7 @@ async function authenticate(user: TUser): Promise<void> {
 		const sessionId = await createSession(user, requestToken);
 		configureLocalStorage(user, sessionId);
 	} catch {
-		alert('Credenciais incorretas!');
+		alert('Invalid credentials!');
 	}
 }
 

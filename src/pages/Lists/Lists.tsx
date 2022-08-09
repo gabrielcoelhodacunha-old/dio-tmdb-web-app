@@ -35,9 +35,9 @@ function ListsContainer(): JSX.Element {
 
 	const create = async () => {
 		const nameValue = name.current ? name.current.value : '';
-		if (!nameValue) return alert(`O campo 'Nome' deve ser preenchido!`);
+		if (!nameValue) return alert(`The field 'Name' must be filled!`);
 		if (lists.some((list) => list.name === nameValue)) {
-			return alert(`A lista '${nameValue}' ja existe!`);
+			return alert(`The list '${nameValue}' already exists!`);
 		}
 		const descriptionValue = description.current
 			? description.current.value

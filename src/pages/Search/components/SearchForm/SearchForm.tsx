@@ -4,7 +4,7 @@ import { RefObject } from 'react';
 function SearchForm({ title, search }: Props): JSX.Element {
 	const titleProps = {
 		...title,
-		label: 'Titulo',
+		label: 'Movie Title',
 	};
 	return (
 		<form
@@ -14,7 +14,7 @@ function SearchForm({ title, search }: Props): JSX.Element {
 			}}
 		>
 			<LabelledInput {...titleProps} />
-			<button>Pesquisar</button>
+			<button>Search</button>
 		</form>
 	);
 }
