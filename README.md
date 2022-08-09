@@ -15,6 +15,8 @@
 [Axios]: https://axios-http.com/
 
 # TMDB Web App
+<img alt="Usage demo GIF" src="docs/assets/usage_demo.gif"/>
+
 ## About
 A web application that consumes the [TMDB API].
 
